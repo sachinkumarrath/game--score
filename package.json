@@ -24,7 +24,7 @@
     "prettier": "prettier --write .",
     "lint": "eslint --fix",
     "clean": "run-s prettier lint",
-    "start": "run-s build start-dev"
+    "start": "run-s build"
   },
   "eslintConfig": {
     "extends": "react-app"
