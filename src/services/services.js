@@ -11,7 +11,7 @@ import { matchReports } from "./match-reports";
 // to load env valiable from .env
 dotenv.config();
 
-const port = process.env.SERVERPORT || 7501;
+const port = process.env.PORT;
 const app = express();
 
 // let webpackConfig;
