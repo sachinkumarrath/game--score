@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
-import webpack from "webpack";
-import webpackDevMiddleware from "webpack-dev-middleware";
+// import webpack from "webpack";
+// import webpackDevMiddleware from "webpack-dev-middleware";
 import dotenv from "dotenv";
 import compression from "compression";
 
@@ -11,20 +11,20 @@ import { matchReports } from "./match-reports";
 // to load env valiable from .env
 dotenv.config();
 
-const port = process.env.PORT || 7501;
+const port = process.env.SERVERPORT || 7501;
 const app = express();
 
-let webpackConfig;
+// let webpackConfig;
 
-if (process.env.NODE_ENV === "development") {
-  webpackConfig = require("../../webpack.config.dev");
-  const compiler = webpack(webpackConfig);
-  app.use(
-    webpackDevMiddleware(compiler, {
-      publicPath: webpackConfig.output.publicPath,
-    })
-  );
-}
+// if (process.env.NODE_ENV === "development") {
+//   webpackConfig = require("../../webpack.config.dev");
+//   const compiler = webpack(webpackConfig);
+//   app.use(
+//     webpackDevMiddleware(compiler, {
+//       publicPath: webpackConfig.output.publicPath,
+//     })
+//   );
+// }
 
 // add compression
 app.use(compression());
@@ -34,9 +34,9 @@ app.use(compression());
 //     next();
 // });
 
-app.use("/reports", matchReports);
+// app.use("/reports", matchReports);
 
-app.use("/public/assets/", express.static(path.join(__dirname, "../../build")));
+// app.use("/public/assets/", express.static(path.join(__dirname, "../../build")));
 
 app.use("/redux-sample", (req, res, next) => {
   console.log("middleware for redux-sample requests");
@@ -48,8 +48,10 @@ app.use("/redux-sample", (req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../pages/index.html"));
+app.use(express.static(path.join(__dirname, '../../build')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../build', 'index.html'));
 });
 
 app.get("/sample", (req, res) => {
