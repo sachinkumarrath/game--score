@@ -10,7 +10,7 @@ import { matchReports } from "./match-reports";
 // to load env valiable from .env
 dotenv.config();
 
-const port = process.env.SERVER_PORT;
+const port = process.env.SERVER_PORT || process.env.PORT;
 const app = express();
 
 // add compression
