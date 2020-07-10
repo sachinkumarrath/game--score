@@ -1,0 +1,112 @@
+{
+  "pistol": [
+    {
+      "name": "Bubun",
+      "points": 3
+    },
+    {
+      "name": "Situ",
+      "points": 1
+    },
+    {
+      "name": "Jubun",
+      "points": 3
+    },
+    {
+      "name": "Jitu",
+      "points": 8
+    },
+    {
+      "name": "Mitu",
+      "points": 3
+    }
+  ],
+  "sniper": [
+    {
+      "name": "Bubun",
+      "points": 6
+    },
+    {
+      "name": "Situ",
+      "points": 0
+    },
+    {
+      "name": "Jubun",
+      "points": 2
+    },
+    {
+      "name": "Jitu",
+      "points": 8
+    },
+    {
+      "name": "Mitu",
+      "points": 2
+    }
+  ],
+  "rifel": [
+    {
+      "name": "Bubun",
+      "points": 5
+    },
+    {
+      "name": "Situ",
+      "points": 2
+    },
+    {
+      "name": "Jubun",
+      "points": 2
+    },
+    {
+      "name": "Jitu",
+      "points": 8
+    },
+    {
+      "name": "Mitu",
+      "points": 0
+    }
+  ],
+  "iceworld": [
+    {
+      "name": "Bubun",
+      "points": 4
+    },
+    {
+      "name": "Situ",
+      "points": 0
+    },
+    {
+      "name": "Jubun",
+      "points": 3
+    },
+    {
+      "name": "Jitu",
+      "points": 7
+    },
+    {
+      "name": "Mitu",
+      "points": 4
+    }
+  ],
+  "overall": [
+    {
+      "name": "Bubun",
+      "points": 19
+    },
+    {
+      "name": "Situ",
+      "points": 3
+    },
+    {
+      "name": "Jubun",
+      "points": 10
+    },
+    {
+      "name": "Jitu",
+      "points": 31
+    },
+    {
+      "name": "Mitu",
+      "points": 9
+    }
+  ]
+}

@@ -9,7 +9,7 @@ import {
   Paper,
 } from "@material-ui/core";
 
-export default function PointTable() {
+export default function PointTable({pointsTableData}) {
   return (
     <TableContainer className="point-table-container" component={Paper}>
       <Table>
@@ -21,7 +21,14 @@ export default function PointTable() {
             <TableCell>Score Against</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody></TableBody>
+        <TableBody>
+          {pointsTableData.map(pointData => <TableRow>
+          <TableCell>{pointData.name}</TableCell>
+          <TableCell>{pointData.points}</TableCell>
+            <TableCell>-</TableCell>
+            <TableCell>-</TableCell>
+          </TableRow>)}
+        </TableBody>
       </Table>
     </TableContainer>
   );

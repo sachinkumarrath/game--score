@@ -1,30 +1,17 @@
 import express from "express";
 import path from "path";
-// import webpack from "webpack";
-// import webpackDevMiddleware from "webpack-dev-middleware";
 import dotenv from "dotenv";
 import compression from "compression";
 
+import pointsData from './data/pointsData.json'
 import { connectDB } from "./dbConnector";
 import { matchReports } from "./match-reports";
 
 // to load env valiable from .env
 dotenv.config();
 
-const port = process.env.PORT;
+const port = process.env.SERVER_PORT;
 const app = express();
-
-// let webpackConfig;
-
-// if (process.env.NODE_ENV === "development") {
-//   webpackConfig = require("../../webpack.config.dev");
-//   const compiler = webpack(webpackConfig);
-//   app.use(
-//     webpackDevMiddleware(compiler, {
-//       publicPath: webpackConfig.output.publicPath,
-//     })
-//   );
-// }
 
 // add compression
 app.use(compression());
@@ -52,6 +39,10 @@ app.use(express.static(path.join(__dirname, '../../build')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../../build', 'index.html'));
+});
+
+app.get("/points", (req, res) => {
+  res.json(pointsData);
 });
 
 app.get("/sample", (req, res) => {

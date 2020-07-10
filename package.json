@@ -30,9 +30,11 @@
     "prettier": "prettier --write .",
     "lint": "eslint --fix",
     "clean": "run-s prettier lint",
-    "start-dev": "yarn build && nodemon --exec babel-node src/services/services.js",
+    "server-dev": "nodemon --exec babel-node src/services/services.js",
+    "start-dev": "run-p server-dev cra-start ",
     "start": "yarn build && babel-node src/services/services.js"
   },
+  "proxy": "http://localhost:7500",
   "eslintConfig": {
     "extends": "react-app"
   },
