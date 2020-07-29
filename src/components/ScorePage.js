@@ -1,16 +1,21 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import PointTable from "./PointTable";
 import { Select, MenuItem, InputLabel } from "@material-ui/core";
 
 export default function ScorePage() {
-  const [gameSelected, setGameSelected] = useState('')
+  const [gameSelected, setGameSelected] = useState('overall')
   const [pointsTableData, setPointsTableData] = useState([])
+
+  useEffect(() => {
+    fetch('/points').then(res => res.json().then(pointsData => {
+      setPointsTableData(pointsData['overall'])
+    }))
+  }, [])
 
   function onSelectGame (evt) {
     const selectedGame = evt.target.value
     setGameSelected(selectedGame)
     fetch('/points').then(res => res.json().then(pointsData => {
-      // console.log('api', pointsData)
       setPointsTableData(pointsData[selectedGame]) 
     }))
   }
